@@ -12,6 +12,7 @@ public class Ville {
 	/** Liste des rues de la ville */
 	private ArrayList<Rue> _rues;
 	
+	/** Parser de lecture dans le fichier des données */
 	private Parser _parser;
 	
 	/**
@@ -27,13 +28,29 @@ public class Ville {
 	}
 	
 	
+	@Override
+	public String toString() {
+		String res = new String("");
+		int nbPlace = _places.size();
+		int nbRue = _rues.size();
+		
+		for (int i = 0; i < nbPlace; ++i) {
+			res += _places.get(i).toString() + "\n";
+		}
+		
+		for (int i = 0; i < nbRue; ++i) {
+			res += _rues.get(i).toString() + "\n";
+		}
+		
+		return res;
+	}
 	
-	
-	
+	/** Renvoie la ième place de la ville */
 	public Place getPlace(int i) {
 		return _places.get(i);
 	}
 	
+	/** Renvoie la ième rue de la ville */
 	public Rue getRue(int i) {
 		return _rues.get(i);
 	}

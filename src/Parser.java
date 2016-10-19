@@ -1,4 +1,5 @@
 import java.io.File;
+import java.io.FileReader;
 import java.util.ArrayList;
 
 /**
@@ -9,6 +10,7 @@ import java.util.ArrayList;
 public class Parser {
 	/** Fichier des données à lire */
 	private File _fichier;
+	private FileReader _lecteur;
 	
 	/** Instancie le parser et prend connaissance du fichier, renvoie une erreur si le fichier n'est pas valide */
 	public Parser(String fichier) {
@@ -21,7 +23,7 @@ public class Parser {
 		}
 	}
 	
-	/** */
+	/** Lit le fichier pour construire l'arobrescence de la ville */
 	public void instancierVille(ArrayList<Place> places, ArrayList<Rue> rues) {
 		//TODO
 	}
