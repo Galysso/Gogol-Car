@@ -12,6 +12,9 @@ public class Place {
 	private int _nbRue;
 	/** Liste des rues reliées à la place */
 	private ArrayList<Rue> _rues;
+	
+	
+	
 	/** Constructeur de la place */
 	public Place(ArrayList<Rue> rues, String nom) {
 		_nom = nom;
