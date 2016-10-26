@@ -21,7 +21,12 @@ public class Ville {
 	 */
 	public Ville(String fichier) {
 		_parser = new Parser(fichier);
+		_places = new ArrayList<Place>();
+		_rues = new ArrayList<Rue>();
 		_parser.instancierVille(_places, _rues);
+		
+		System.out.println("size places : " + _places.size());
+		System.out.println("size rues : " + _rues.size());
 	}
 	
 	

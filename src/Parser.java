@@ -39,32 +39,45 @@ public class Parser {
 		Rue rue;
 		int indP1, indP2;
 		
-		_lecteur.useDelimiter(".");
+		_lecteur.useDelimiter(";|\\.");		
 		nbPlace = _lecteur.nextInt();
-		places = new ArrayList<Place>(nbPlace);
+		_lecteur.nextLine();
 		nbRue = _lecteur.nextInt();
-		rues = new ArrayList<Rue>(nbRue);
+		_lecteur.nextLine();
 		
 		for (int i = 0; i < nbPlace; ++i) {
 			places.add(new Place(_lecteur.next()));
+			_lecteur.nextLine();
 		}
 		
 		for (int i = 0; i < nbRue; ++i) {
-			_lecteur.useDelimiter(";");
-			nomPlace1 = _lecteur.next();
-			nomPlace2 = _lecteur.next();
-			indP1 = places.indexOf(nomPlace1);
-			indP2 = places.indexOf(nomPlace2);
-			_lecteur.useDelimiter(".");
-			nomRue = _lecteur.next();
-			
-			
+			//_lecteur.useDelimiter(";");
+			nomRue = _lecteur.next().trim();
+			System.out.println("Rue : " + nomRue);
+			nomPlace1 = _lecteur.next().trim();
+			System.out.println("Place1 : " + nomPlace1);
+			nomPlace2 = _lecteur.next().trim();
+			System.out.println("Place2 : " + nomPlace2);
+			_lecteur.nextLine();
+			indP1 = places.indexOf(new Place(nomPlace1));
+			indP2 = places.indexOf(new Place(nomPlace2));
 			
 			if ((indP1 != -1) && (indP2 != -1)) {
 				place1 = places.get(indP1);
 				place2 = places.get(indP2);
-				rues.add(new Rue(place1, place2, rue));
+				rue = new Rue(place1, place2, nomRue);
+				rues.add(new Rue(place1, place2, nomRue));
+				place1.add(rue);
+				place2.add(rue);
+				System.out.println("");
+			} else {
+			/*	System.out.println("Rue : " + nomRue);
+				System.out.println("Place " + nomPlace1);
+				System.out.println("Place " + nomPlace2);*/
+				System.out.println("indP1=" + indP1 + "\nindP2=" + indP2 + "\n");
 			}
 		}
+		System.out.println("size places : " + places.size());
+		System.out.println("size rues : " + rues.size());
 	}
 }

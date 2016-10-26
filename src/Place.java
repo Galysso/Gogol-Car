@@ -19,6 +19,7 @@ public class Place {
 	public Place(String nom) {
 		_nom = nom;
 		_nbRue = 0;
+		_rues = new ArrayList<Rue>();
 	}
 	
 	public Place(ArrayList<Rue> rues, String nom) {
@@ -44,13 +45,20 @@ public class Place {
 	
 	@Override
 	public boolean equals(Object o) {
+		//System.out.println("equals");
 		if (o == null) {
+			//System.out.println("null");
 			return false;
 		} else if (o instanceof String) {
+			//System.out.println("String");
+			//System.out.println((String)o + " == " + _nom + "?");
 			return (((String)o).equals(_nom));
 		} else if (o instanceof Place) {
+			//System.out.println("Place");
+			System.out.println(((Place)o).getNom() + " == " + _nom);
 			return (((Place)o).getNom().equals(_nom));
 		} else {
+			//System.out.println("autre");
 			return false;
 		}
 	}

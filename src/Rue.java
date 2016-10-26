@@ -17,8 +17,6 @@ public class Rue {
 		_p2 = p2;
 	}
 	
-	
-	
 	@Override
 	public String toString() {
 		return _nom + " : " + _p1.getNom() + " <=> " + _p2.getNom();
