@@ -25,7 +25,6 @@ public class Parser {
 			try {
 				_lecteur = new Scanner(_fichier);
 			} catch (FileNotFoundException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}
