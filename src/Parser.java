@@ -51,7 +51,6 @@ public class Parser {
 		}
 		
 		for (int i = 0; i < nbRue; ++i) {
-			//_lecteur.useDelimiter(";");
 			nomRue = _lecteur.next().trim();
 			System.out.println("Rue : " + nomRue);
 			nomPlace1 = _lecteur.next().trim();
@@ -71,10 +70,6 @@ public class Parser {
 				place2.add(rue);
 				System.out.println("");
 			} else {
-			/*	System.out.println("Rue : " + nomRue);
-				System.out.println("Place " + nomPlace1);
-				System.out.println("Place " + nomPlace2);*/
-				System.out.println("indP1=" + indP1 + "\nindP2=" + indP2 + "\n");
 			}
 		}
 		System.out.println("size places : " + places.size());
