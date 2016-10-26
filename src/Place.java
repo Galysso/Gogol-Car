@@ -5,6 +5,7 @@ import java.util.ArrayList;
  * @author SOURIOT Lydia, CAILLOUX Jocelin.
  * @since 19/10/2016
  */
+
 public class Place {
 	/** Nom de la place */
 	private String _nom;
