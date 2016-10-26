@@ -15,7 +15,12 @@ public class Place {
 	
 	
 	
-	/** Constructeur de la place */
+	/** Constructeurs de la place */
+	public Place(String nom) {
+		_nom = nom;
+		_nbRue = 0;
+	}
+	
 	public Place(ArrayList<Rue> rues, String nom) {
 		_nom = nom;
 		_nbRue = rues.size();
@@ -35,6 +40,24 @@ public class Place {
 		res += ")";
 		
 		return res;
+	}
+	
+	@Override
+	public boolean equals(Object o) {
+		if (o == null) {
+			return false;
+		} else if (o instanceof String) {
+			return (((String)o).equals(_nom));
+		} else if (o instanceof Place) {
+			return (((Place)o).getNom().equals(_nom));
+		} else {
+			return false;
+		}
+	}
+	
+	public void add(Rue r) {
+		_rues.add(r);
+		_nbRue = _nbRue + 1;
 	}
 	
 	public String getNom() {

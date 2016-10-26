@@ -33,9 +33,11 @@ public class Parser {
 	
 	/** Lit le fichier pour construire l'arobrescence de la ville */
 	public void instancierVille(ArrayList<Place> places, ArrayList<Rue> rues) {
-		String Place;
 		int nbPlace, nbRue;
-		Place p;
+		String nomRue, nomPlace1, nomPlace2;
+		Place place1, place2;
+		Rue rue;
+		int indP1, indP2;
 		
 		_lecteur.useDelimiter(".");
 		nbPlace = _lecteur.nextInt();
@@ -44,7 +46,25 @@ public class Parser {
 		rues = new ArrayList<Rue>(nbRue);
 		
 		for (int i = 0; i < nbPlace; ++i) {
-			//places.add(_lecteur.next());
+			places.add(new Place(_lecteur.next()));
+		}
+		
+		for (int i = 0; i < nbRue; ++i) {
+			_lecteur.useDelimiter(";");
+			nomPlace1 = _lecteur.next();
+			nomPlace2 = _lecteur.next();
+			indP1 = places.indexOf(nomPlace1);
+			indP2 = places.indexOf(nomPlace2);
+			_lecteur.useDelimiter(".");
+			nomRue = _lecteur.next();
+			
+			
+			
+			if ((indP1 != -1) && (indP2 != -1)) {
+				place1 = places.get(indP1);
+				place2 = places.get(indP2);
+				rues.add(new Rue(place1, place2, rue));
+			}
 		}
 	}
 }
