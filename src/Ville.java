@@ -56,4 +56,13 @@ public class Ville {
 	public Rue getRue(int i) {
 		return _rues.get(i);
 	}
+
+
+	public ArrayList<Place> getPlaces() {
+		return _places;
+	}
+	
+	public ArrayList<Rue> getRues(){
+		return _rues;
+	}
 }
