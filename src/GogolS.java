@@ -10,16 +10,16 @@ public class GogolS {
 	public Ville _ville;
 	public ArrayList <Rue> _ruesChemin;
 	public ArrayList <Place> _placesChemin;
-	public ArrayList <String> _couleur;
+	public ArrayList <String> _couleurs;
 	
 	/** Constructeurs */
 	public GogolS(Ville ville){
 		_ville = ville;
 		_ruesChemin = new ArrayList<Rue>();
 		_placesChemin = new ArrayList<Place>();
-		_couleur = new ArrayList();
+		_couleurs = new ArrayList();
 		for(int i = 0; i < ville.getRues().size(); i++){
-			_couleur.add("Blanc");
+			_couleurs.add("Blanc");
 		}
 	}
 	
@@ -44,8 +44,8 @@ public class GogolS {
 				}
 			}
 			/** On applique le parcours en prof */
-			if(_couleur.get(j)=="Blanc"){
-				_couleur.set(j,"Gris"); /**Rue en cours de traitement*/
+			if(_couleurs.get(j)=="Blanc"){
+				_couleurs.set(j,"Gris"); /**Rue en cours de traitement*/
 				_ruesChemin.add(_ville.getRue(j));
 				if(_ville.getRue(j).getP1().getNom()==p.getNom()){
 					AlgoS(_ville.getRue(j).getP2());
@@ -53,7 +53,7 @@ public class GogolS {
 				else{
 					AlgoS(_ville.getRue(j).getP1());
 				}
-				_couleur.set(j,"Noir");
+				_couleurs.set(j,"Noir");
 				_ruesChemin.add(_ville.getRue(j)); /** on remonte le chemin */
 				_placesChemin.add(p);
 			}
