@@ -9,7 +9,12 @@ public class main {
 		GogolS g = new GogolS(v);
 		
 		// System.out.println(v.getPlace(0));
-		g.AlgoS(v.getPlace(0));
-		System.out.println(g.toString());
+		//g.AlgoS(v.getPlace(0));
+		//System.out.println(g.toString());
+		
+		GogolL g2 = new GogolL(v);
+		g2.Arborescence(v.getPlace(0));
+		System.out.println(g2.toString());
+		
 	}
 }

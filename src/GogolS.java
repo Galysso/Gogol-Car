@@ -17,7 +17,7 @@ public class GogolS {
 		_ville = ville;
 		_ruesChemin = new ArrayList<Rue>();
 		_placesChemin = new ArrayList<Place>();
-		_couleurs = new ArrayList();
+		_couleurs = new ArrayList<String>();
 		for(int i = 0; i < ville.getRues().size(); i++){
 			_couleurs.add("Blanc");
 		}
