@@ -7,10 +7,10 @@ import java.util.ArrayList;
  */
 
 public class GogolS {
-	public Ville _ville;
-	public ArrayList <Rue> _ruesChemin;
-	public ArrayList <Place> _placesChemin;
-	public ArrayList <String> _couleurs;
+	private Ville _ville;
+	private ArrayList <Rue> _ruesChemin;
+	private ArrayList <Place> _placesChemin;
+	private ArrayList <String> _couleurs;
 	
 	/** Constructeurs */
 	public GogolS(Ville ville){
