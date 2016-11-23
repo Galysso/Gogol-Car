@@ -25,13 +25,10 @@ public class Ville {
 		_rues = new ArrayList<Rue>();
 		_parser.instancierVille(_places, _rues);
 		
-<<<<<<< HEAD
 		/*System.out.println("size places : " + _places.size());
 		System.out.println("size rues : " + _rues.size());*/
-=======
 		//System.out.println("size places : " + _places.size());
 		//System.out.println("size rues : " + _rues.size());
->>>>>>> 6794bd8a791a05f9566c899992f28510f0739f64
 	}
 	
 	
