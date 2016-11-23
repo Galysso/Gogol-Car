@@ -51,11 +51,11 @@ public class Parser {
 		
 		for (int i = 0; i < nbRue; ++i) {
 			nomRue = _lecteur.next().trim();
-			System.out.println("Rue : " + nomRue);
+			//System.out.println("Rue : " + nomRue);
 			nomPlace1 = _lecteur.next().trim();
-			System.out.println("Place1 : " + nomPlace1);
+			//System.out.println("Place1 : " + nomPlace1);
 			nomPlace2 = _lecteur.next().trim();
-			System.out.println("Place2 : " + nomPlace2);
+			//System.out.println("Place2 : " + nomPlace2);
 			_lecteur.nextLine();
 			indP1 = places.indexOf(new Place(nomPlace1));
 			indP2 = places.indexOf(new Place(nomPlace2));
@@ -67,11 +67,11 @@ public class Parser {
 				rues.add(new Rue(place1, place2, nomRue));
 				place1.add(rue);
 				place2.add(rue);
-				System.out.println("");
+				//System.out.println("");
 			} else {
 			}
 		}
-		System.out.println("size places : " + places.size());
-		System.out.println("size rues : " + rues.size());
+		//System.out.println("size places : " + places.size());
+		//System.out.println("size rues : " + rues.size());
 	}
 }

@@ -73,4 +73,24 @@ public class Place {
 	public Rue getRue(int i) {
 		return _rues.get(i);
 	}
+	
+	public int getNbRue() {
+		return _nbRue;
+	}
+	
+	// Renvoie vrai si l'objet est relié à la place p par une ville, faux sinon (ou si this = p)
+	public boolean isConnectedTo(Place p) {
+		if (this.equals(p)) {
+			return false;
+		} else {
+			boolean isConnected = false;
+			int i = 0;
+			
+			while ((!isConnected) && (i < _nbRue)) {
+				isConnected = (p.equals(_rues.get(i).getP1()) || (p.equals(_rues.get(i).getP2())));
+				++i;
+			}
+			return isConnected;
+		}
+	}
 }
