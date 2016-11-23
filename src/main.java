@@ -14,25 +14,7 @@ public class main {
 		//System.out.println(g.toString());
 		
 		/*GogolL g2 = new GogolL(v);
-		g2.Arborescence(v.getPlace(0));
-		System.out.println(g2.toString());*/
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		GogolXL g3 = new GogolXL(v);
-		g3.listOddVertices();
-		g3.pairingOddVertices();
-		g3.floydWarshall();
-		
-		
+		g2.Arborescence(v.getPlace(0));*/
 		
 	}
 }
