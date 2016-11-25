@@ -9,7 +9,7 @@ public class main {
 		//System.out.println(v.toString());
 		GogolS g = new GogolS(v);
 		
-		g.AlgoS(v.getPlace(0));
+		//g.AlgoS(v.getPlace(0));
 		
 		/*GogolL g2 = new GogolL(v);
 		g2.AlgoL(v.getPlace(0));*/
