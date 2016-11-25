@@ -31,9 +31,13 @@ public class GogolS {
 	public Place getPlace(int i){
 		return _placesChemin.get(i);
 	}*/
+	public void AlgoS(Place p){
+		RechercheS(p);
+		System.out.println(toString());
+	}
 	
 	/** Fonctions */	
-	public void AlgoS(Place p){
+	public void RechercheS(Place p){
 		int i,j;
 		_placesChemin.add(p);
 		for(i=0; i<p.getRues().size(); i++){
@@ -48,10 +52,10 @@ public class GogolS {
 				_couleurs.set(j,"Gris"); /**Rue en cours de traitement*/
 				_ruesChemin.add(_ville.getRue(j));
 				if(_ville.getRue(j).getP1().getNom()==p.getNom()){
-					AlgoS(_ville.getRue(j).getP2());
+					RechercheS(_ville.getRue(j).getP2());
 				}
 				else{
-					AlgoS(_ville.getRue(j).getP1());
+					RechercheS(_ville.getRue(j).getP1());
 				}
 				_couleurs.set(j,"Noir");
 				_ruesChemin.add(_ville.getRue(j)); /** on remonte le chemin */

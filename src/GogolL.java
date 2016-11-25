@@ -31,6 +31,29 @@ public class GogolL {
 		}
 		
 	}
+	
+	public void AlgoL(Place p){
+		ArrayList<Place> placesImpaires = new ArrayList<Place>();
+		for(int i = 0; i <_ville.getPlaces().size();i++){
+			if(_ville.getPlace(i).getRues().size()%2 != 0){
+				placesImpaires.add(_ville.getPlace(i));
+			}
+		}
+		if(placesImpaires.size()>2){
+			System.out.println("Error : graphe non eulérien");
+            System.exit (0);
+		}
+		if((placesImpaires.size()>0) && (p.getRues().size()%2 != 1)){
+			System.out.println("Graphe eulérien avec sommets impaires et place non valide. Au lieu de "+ p.getNom() +" Prenez les places : ");
+			for(int i = 0; i<placesImpaires.size();i++){
+				System.out.println(placesImpaires.get(i).getNom());
+			}
+            System.exit (0);
+		}
+		Arborescence(p);
+		RechercheL(p);
+		System.out.println(toString());
+	}
 
 	
 	/** Fonctions */
@@ -78,13 +101,7 @@ public class GogolL {
 		_couleurSommets.set(i, "Noir");
 	}
 	
-	public void getArborescence(){
-		int r;
-		for(r = 0; r<_ville.getRues().size() ; r++)
-			System.out.println(_ville.getRue(r).getNom() +" "+ _arborescence.get(r));
-	}
-	
-	public void AlgoL(Place p){
+	public void RechercheL(Place p){
 		int i,j,r;
 		_placesChemin.add(p);
 		/** Pour toutes les rues de la place */
@@ -115,12 +132,12 @@ public class GogolL {
 				
 				if(_ville.getRue(r).getP1().getNom()==p.getNom()){
 					//System.out.println("1 " + _ville.getRue(r).getP2());
-					AlgoL(_ville.getRue(r).getP2());
+					RechercheL(_ville.getRue(r).getP2());
 				}
 				
 				else{
 					//System.out.println("1 " + _ville.getRue(r).getP1());
-					AlgoL(_ville.getRue(r).getP1());
+					RechercheL(_ville.getRue(r).getP1());
 				}
 				_couleurAretes.set(r,"Noir");
 			}
@@ -142,11 +159,11 @@ public class GogolL {
 				
 				if(_ville.getRue(r).getP1().getNom()==p.getNom()){
 					//System.out.println(_ville.getRue(r).getP2());
-					AlgoL(_ville.getRue(r).getP2());
+					RechercheL(_ville.getRue(r).getP2());
 				}
 				else{
 					//System.out.println(_ville.getRue(r).getP1());
-					AlgoL(_ville.getRue(r).getP1());
+					RechercheL(_ville.getRue(r).getP1());
 				}
 				
 				_couleurAretes.set(r,"Noir");
@@ -161,7 +178,7 @@ public class GogolL {
 		String res = new String("\nChemin : (");
 		
 		
-		for (i = 0;i < _ruesChemin.size()-2;i++){
+		for (i = 0;i < _ruesChemin.size()-1;i++){
 			res += _ruesChemin.get(i).getNom()+" -> ";
 			if((i+1)%4==0&&i>0)
 				res +="\n\t";
