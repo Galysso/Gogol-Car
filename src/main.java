@@ -5,16 +5,15 @@ public class main {
 	public static void main(String[] args) {
 
 		//Ville v = new Ville("datas/test.dat");
-		Ville v = new Ville("datas/nonEulerien.dat");
+		Ville v = new Ville("datas/test.dat");
 		//System.out.println(v.toString());
-		//GogolS g = new GogolS(v);
+		GogolS g = new GogolS(v);
 		
-		// System.out.println(v.getPlace(0));
-		//g.AlgoS(v.getPlace(0));
-		//System.out.println(g.toString());
+		g.AlgoS(v.getPlace(0));
 		
 		/*GogolL g2 = new GogolL(v);
-		g2.Arborescence(v.getPlace(0));*/
+		g2.AlgoL(v.getPlace(0));*/
+		
 		
 	}
 }
