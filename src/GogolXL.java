@@ -17,11 +17,12 @@ import java.util.ArrayList;
  * Step 3 :
  * For each pairing find the edges that connect the
  * vertices with the minimum weight.
- *//**
+ *
  * Step 4 :
  * Find the pairings such that the sum of the weights
  * is minimised.
  * 
+ *//** 
  * Step 5 :
  * On the original graph add the edges that have been
  * found in Step 4.
@@ -179,7 +180,7 @@ public class GogolXL {
 			p1 = _pairings.get(0);
 			for (int i = 1; i < nbOdd; ++i) {
 				p2 = _pairings.get(i);
-				if (/*(p1.i1 == p2.i1) && */(p2.weight > p1.weight)) {
+				if (/*(p1.i1 == p2.i1) &&*/ (p2.weight < p1.weight)) {
 					_pairings.set(i-1,p2);
 					_pairings.set(i,p1);
 					estTrie = false;
@@ -190,27 +191,22 @@ public class GogolXL {
 		} while (!estTrie);
 		
 		// L'instance ne permet pas de bien tester la fonction de tri
-		/*for (int i = 0; i < nbOdd; ++i) {
+		for (int i = 0; i < nbOdd; ++i) {
 			p1 = _pairings.get(i);
 			System.out.println(p1.i1+","+p1.i2+": "+p1.weight);
-		}*/
+		}
 		
 		ArrayList<Integer> indicesCouples = new ArrayList<Integer>();
 		
 		for (int i = 0; i < nbOdd; ++i) {
 			p = _pairings.get(i);
-			if (/*indicesCouples.indexOf(p.i1) == -1 && */indicesCouples.indexOf(p.i2) == -1) {
+			if ((indicesCouples.indexOf(p.i1) == -1) && (indicesCouples.indexOf(p.i2) == -1)) {
 				indicesCouples.add(p.i1);
+				indicesCouples.add(p.i2);
 				_pairesPoidsMin.add(p);
 				System.out.println(p.i1+","+p.i2);
 			}
-			++i;
-			while (_pairings.get(i).i1 == p.i1) {
-				++i;
-			}
 		}
-		
-		
 	}
 }
 
