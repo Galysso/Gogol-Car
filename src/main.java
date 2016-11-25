@@ -16,5 +16,11 @@ public class main {
 		/*GogolL g2 = new GogolL(v);
 		g2.Arborescence(v.getPlace(0));*/
 		
+		GogolXL g3 = new GogolXL(v);
+		g3.listOddVertices();
+		g3.pairingOddVertices();
+		g3.floydWarshall();
+		g3.setPairingWeights();
+		g3.heuristicMinimumWeightPairs();
 	}
 }
