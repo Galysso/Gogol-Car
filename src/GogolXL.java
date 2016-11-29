@@ -22,11 +22,11 @@ import java.util.ArrayList;
  * Find the pairings such that the sum of the weights
  * is minimised.
  * 
- *//** 
+ *
  * Step 5 :
  * On the original graph add the edges that have been
  * found in Step 4.
- * 
+ *//** 
  * Step 6 :
  * The length of an optimal Chinese postman route is
  * the sum of all the edges added to the total found
@@ -96,7 +96,6 @@ public class GogolXL {
 	
 	public void floydWarshall() {
 		ArrayList<Place> places = _ville.getPlaces();
-		ArrayList<Rue> rues = _ville.getRues();
 		int nbPlace = places.size();
 		
 		// Initialisation du distancier
@@ -110,8 +109,8 @@ public class GogolXL {
 				} else if (places.get(i).isConnectedTo(places.get(j))) {
 					_distancier.get(i).add(j, 1);
 					_distancier.get(j).add(i, 1);
-					_predecesseurs.get(i).add(j,i);
-					_predecesseurs.get(j).add(i,j);
+					_predecesseurs.get(i).add(j,j);
+					_predecesseurs.get(j).add(i,i);
 				} else {
 					//System.out.println("i="+i+"\tj="+j);
 					_distancier.get(i).add(j, -1);
@@ -150,8 +149,8 @@ public class GogolXL {
 			}
 			System.out.println();
 		}
-		System.out.println();*/
-		/*for (int i = 0; i < nbPlace; ++i) {
+		System.out.println();
+		for (int i = 0; i < nbPlace; ++i) {
 			System.out.print(places.get(i).getNom());
 			for (int j = 0; j < nbPlace; ++j) {
 				System.out.print("\t" + _predecesseurs.get(i).get(j));
@@ -193,7 +192,7 @@ public class GogolXL {
 		// L'instance ne permet pas de bien tester la fonction de tri
 		for (int i = 0; i < nbOdd; ++i) {
 			p1 = _pairings.get(i);
-			System.out.println(p1.i1+","+p1.i2+": "+p1.weight);
+			//System.out.println(p1.i1+","+p1.i2+": "+p1.weight);
 		}
 		
 		ArrayList<Integer> indicesCouples = new ArrayList<Integer>();
@@ -204,13 +203,44 @@ public class GogolXL {
 				indicesCouples.add(p.i1);
 				indicesCouples.add(p.i2);
 				_pairesPoidsMin.add(p);
-				System.out.println(p.i1+","+p.i2);
+				//System.out.println(p.i1+","+p.i2);
 			}
 		}
+		
+		
+		
 	}
+	
+	public void construireCheminPaires() {
+		int i;
+		Integer nb;
+		int indP1, indPSuiv, indP2;
+		int n = _pairesPoidsMin.size();
+		Paire paire;
+		
+		nb = 1;
+		for (i = 0; i < n; ++i) {
+			paire = _pairesPoidsMin.get(i);
+			indP1 = paire.i1;
+			indP2 = paire.i2;
+			indPSuiv = _predecesseurs.get(indP1).get(indP2);
+			_ville.addRue(new Rue(_ville.getPlace(indP1), _ville.getPlace(indPSuiv), "RUE BIS " + nb.toString()));
+			nb = nb + 1;
+			
+			while(indPSuiv != indP2) {
+				indP1 = indPSuiv;
+				indPSuiv = _predecesseurs.get(indP1).get(indP2);
+				_ville.addRue(new Rue(_ville.getPlace(indP1), _ville.getPlace(indPSuiv), "RUE BIS " + nb.toString()));
+				nb = nb + 1;
+			}
+			
+			/*for (int j = 0; j < paire.chemin.size(); ++j) {
+				System.out.print(paire.chemin.get(j).toString());
+			}
+			System.out.println();*/
+		}
+	}	
 }
-
-
 
 
 

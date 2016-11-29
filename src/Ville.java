@@ -49,6 +49,12 @@ public class Ville {
 		return res;
 	}
 	
+	public void addRue(Rue r) {
+		r.getP1().add(r);
+		r.getP2().add(r);
+		_rues.add(r);
+	}
+	
 	/** Renvoie la ième place de la ville */
 	public Place getPlace(int i) {
 		return _places.get(i);

@@ -5,6 +5,7 @@ public class main {
 	public static void main(String[] args) {
 
 		Ville v = new Ville("datas/nonEulerien.dat");
+		//System.out.println(v.toString());
 		//Ville v = new Ville("datas/test.dat");
 		//System.out.println(v.toString());
 		//GogolS g = new GogolS(v);
@@ -21,5 +22,12 @@ public class main {
 		g3.floydWarshall();
 		g3.setPairingWeights();
 		g3.heuristicMinimumWeightPairs();
+		g3.construireCheminPaires();
+		
+		System.out.println(v.toString());
+		
+		
+		GogolL GL = new GogolL(v);
+		GL.AlgoL(v.getPlace(0));
 	}
 }
