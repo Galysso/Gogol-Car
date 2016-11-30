@@ -47,6 +47,9 @@ public class GogolS {
 					break;
 				}
 			}
+			//j = _ville.getRues().indexOf(p.getRue(i));
+			
+			
 			/** On applique le parcours en prof */
 			if(_couleurs.get(j)=="Blanc"){
 				_couleurs.set(j,"Gris"); /**Rue en cours de traitement*/

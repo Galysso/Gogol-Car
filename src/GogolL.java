@@ -61,28 +61,23 @@ public class GogolL {
 		int i,j,r,rue;
 		_placesChemin.add(p);
 		/** On cherche l'indice de notre place dans la ville */
-		for(i=0;i<_ville.getPlaces().size();i++){
-			if(_ville.getPlace(i).getNom()==p.getNom()){
-				break;
-			}
-		}
+		i = _ville.getPlaces().indexOf(p);
+		
 		/** on la met en cours de traitement*/
 		_couleurSommets.set(i, "Gris");
 		
 		/** pour toutes les rues qui partent de la place */
 		for(r = 0;r < p.getRues().size();r++){
 			/** on cherche l'indice de la rue */
-			for(rue=0;rue<_ville.getRues().size();rue++){
-				if(_ville.getRue(rue).getNom()==p.getRue(r).getNom()){
-					break;
-				}
-			}
+			rue = _ville.getRues().indexOf(p.getRue(r));
+			
 			/** on cherche l'indice de la place voisine par la rue considérée */ 
-			for(j=0;j<_ville.getPlaces().size();j++){
-				if(((_ville.getPlace(j).getNom()==p.getRue(r).getP1().getNom())||(_ville.getPlace(j).getNom()==p.getRue(r).getP2().getNom()))&&(i != j)){
-					break;
-				}
+			if (p.getRue(r).getP1().equals(p)) {
+				j = _ville.getPlaces().indexOf(p.getRue(r).getP2());
+			} else {
+				j = _ville.getPlaces().indexOf(p.getRue(r).getP1());
 			}
+			
 			/** si elle n'est pas encore traitée */
 			if(_couleurSommets.get(j)=="Blanc"){
 				_arborescence.set(rue, "1");
@@ -108,21 +103,13 @@ public class GogolL {
 		for(i=0; i<p.getRues().size(); i++){
 			
 			/**On cherche l'indice de la rue dans la ville*/
-			for(r = 0;r<_ville.getRues().size();r++){
-				if(_ville.getRue(r).getNom()==p.getRue(i).getNom()){
-					break;
-				}
-			}
+			r = _ville.getRues().indexOf(p.getRue(i));
 			
 			/** On cherche l'indice de la deuxieme place associee */ 
-			for(j=0;j<_ville.getPlaces().size();j++){
-				if(
-				(_ville.getPlace(j).getNom()!=p.getNom())&& // si c'est pas la premiere place
-				((_ville.getPlace(j).getNom()==_ville.getRue(r).getP1().getNom())
-				||(_ville.getPlace(j).getNom()==_ville.getRue(r).getP2().getNom())))
-				{
-					break;
-				}
+			if (_ville.getRue(r).getP1().equals(p)) {
+				j = _ville.getPlaces().indexOf(_ville.getRue(r).getP2());
+			} else {
+				j = _ville.getPlaces().indexOf(_ville.getRue(r).getP1());
 			}
 			
 			/** On applique le parcours */
@@ -145,11 +132,7 @@ public class GogolL {
 		
 		for(i=0; i<p.getRues().size(); i++){
 			/**On cherche l'indice de la rue dans la ville*/
-			for(r = 0;r<_ville.getRues().size();r++){
-				if(_ville.getRue(r).getNom()==p.getRue(i).getNom()){
-					break;
-				}
-			}
+			r = _ville.getRues().indexOf(p.getRue(i));
 			
 			/** On applique le parcours */
 			if((_couleurAretes.get(r)=="Blanc")){

@@ -33,4 +33,17 @@ public class Rue {
 	public Place getP2() {
 		return _p2;
 	}
+	
+	@Override
+	public boolean equals(Object o) {
+		if (o == null) {
+			return false;
+		} else if (o instanceof String) {
+			return (((String)o).equals(_nom));
+		} else if (o instanceof Rue) {
+			return (((Rue)o).getNom().equals(_nom));
+		} else {
+			return false;
+		}
+	}
 }

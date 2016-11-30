@@ -4,7 +4,7 @@ public class main {
 	
 	public static void main(String[] args) {
 
-		Ville v = new Ville("datas/nonEulerien.dat");
+		Ville v = new Ville("../datas/grosseVille.dat");
 		//System.out.println(v.toString());
 		//Ville v = new Ville("datas/test.dat");
 		//System.out.println(v.toString());
@@ -27,7 +27,10 @@ public class main {
 		System.out.println(v.toString());
 		
 		
-		GogolL GL = new GogolL(v);
-		GL.AlgoL(v.getPlace(0));
+		GogolS GS = new GogolS(v);
+		GS.AlgoS(v.getPlace(0));
+		
+		/*GogolL GL = new GogolL(v);
+		GL.AlgoL(v.getPlace(0));*/
 	}
 }
